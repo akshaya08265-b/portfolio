@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biddala Akshaya | Portfolio</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="profile.png">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Biddala Akshaya</div>
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="glass-card">
+        <!-- Image directly from main folder -->
+        <img src="profile.png" alt="Profile Photo" class="profile">
+
+        <h1>Biddala Akshaya</h1>
+        <h3><span class="typing"></span></h3>
+
+        <p>
+            Java Backend Developer focused on building scalable and secure systems.
+            Passionate about problem solving and product-based placements.
+        </p>
+
+        <div class="buttons">
+            <a href="resume.pdf" download class="btn-primary">Download Resume</a>
+            <a href="https://github.com/akshaya08265-b"
+               target="_blank"
+               class="btn-secondary">GitHub</a>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="section">
+    <h2>About Me</h2>
+    <div class="about-card">
+        <p>
+            BE CSE 3rd year student specializing in Java and SQL backend development.
+            Built a YOLOv8-based attendance system and smart helmet emergency alert system.
+            Continuously improving data structures and system design knowledge.
+        </p>
+    </div>
+</section>
+
+<section id="skills" class="section">
+    <h2>Technical Skills</h2>
+    <div class="skills-container">
+        <div class="skill-card">Java</div>
+        <div class="skill-card">SQL</div>
+        <div class="skill-card">HTML</div>
+        <div class="skill-card">CSS</div>
+        <div class="skill-card">YOLOv8</div>
+        <div class="skill-card">Data Structures</div>
+    </div>
+</section>
+
+<section id="projects" class="section">
+    <h2>Projects</h2>
+
+    <div class="project-container">
+        <div class="project-card">
+            <h3>Contactless Attendance System</h3>
+            <p>YOLOv8 real-time face detection with automated attendance tracking.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Student Management System</h3>
+            <p>Java & SQL backend application for managing student records.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Smart Helmet Emergency Alert</h3>
+            <p>Sensor-based accident detection and emergency notification system.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <h2>Contact</h2>
+    <div class="contact-card">
+        <p><strong>Email:</strong> akshaya08265@gmail.com</p>
+        <p><strong>GitHub:</strong>
+            <a href="https://github.com/akshaya08265-b" target="_blank">
+                github.com/akshaya08265-b
+            </a>
+        </p>
+        <p><strong>Location:</strong> Tirupati, Andhra Pradesh</p>
+    </div>
+</section>
+
+<script>
+const texts = [
+    "Java Backend Developer",
+    "Machine Learning Enthusiast",
+    "Problem Solver",
+    "CSE Student"
+];
+
+const typingElement = document.querySelector(".typing");
+
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeEffect() {
+    const currentText = texts[textIndex];
+
+    if (!isDeleting) {
+        typingElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentText.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 1000);
+            return;
+        }
+    } else {
+        typingElement.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+        }
+    }
+
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
+}
+
+typeEffect();
+</script>
+
+</body>
+</html>
